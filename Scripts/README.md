@@ -12,6 +12,12 @@ automatic commands on it.
 Only checksum of the text (salted) is stored in the blocklist so this can be
 safely used with passwords (the texts are not stored anywhere).
 
+### [Bookmarks](bookmarks.ini)
+
+Allows you to set a mark on an item, then later restore that mark to the clipboard. 
+
+The implementation uses special tags with a "mark:" prefix, and when a mark is set, removes  that tag from any items that contain that tag.
+
 ### [Clear Clipboard After Interval](clear-clipboard-after-interval.ini)
 
 Clears clipboard after an interval (30 seconds by default).
@@ -58,10 +64,15 @@ Resets last clipboard text (or X11 selection) if it's cleared.
 
 Show main window after application starts.
 
+### [Top Item to Clipboard](top-item-to-clipboard.ini)
+
+Whenever a new top item is added to the clipboard tab or is changed, it is also
+copied to the system clipboard.
+
 ### [Wayland Support](wayland-support.ini)
 
-Adds support for some features under Wayland compositors in KDE, Gnome and
-Sway.
+Adds support for some features under Wayland compositors in KDE, Sway, Hyprland
+and possibly others.
 
 Command "Paste Items when Activated" pastes items when activated (on
 double-click or Enter key) depending on application configuration (History
@@ -75,6 +86,8 @@ you should modify your `alacritty.yml` with next line:
 ```yaml
   - { key: Insert, mods: Shift, action: Paste }
 ```
+
+Getting window title is currently implemented only for Sway and Hyprland.
 
 Requirements:
 
